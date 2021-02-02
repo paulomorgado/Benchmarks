@@ -1,45 +1,61 @@
 ``` ini
 
-BenchmarkDotNet=v0.12.1, OS=Windows 10.0.21301
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.21306
 Intel Core i7-8650U CPU 1.90GHz (Kaby Lake R), 1 CPU, 8 logical and 4 physical cores
-.NET Core SDK=5.0.200-preview.20614.14
+.NET Core SDK=5.0.200-preview.21077.7
   [Host]     : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
-  Job-BZLJBK : .NET Framework 4.8 (4.8.4311.0), X64 RyuJIT
-  Job-BYYWSC : .NET Core 3.1.11 (CoreCLR 4.700.20.56602, CoreFX 4.700.20.56604), X64 RyuJIT
-  Job-PWRAQS : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
+  Job-WUFNMB : .NET Framework 4.8 (4.8.4311.0), X64 RyuJIT
+  Job-QVXTTI : .NET Core 3.1.11 (CoreCLR 4.700.20.56602, CoreFX 4.700.20.56604), X64 RyuJIT
+  Job-AJCNCP : .NET Core 5.0.2 (CoreCLR 5.0.220.61120, CoreFX 5.0.220.61120), X64 RyuJIT
 
 
 ```
-|                 Method |        Job |       Runtime |    Toolchain | test |       Mean |     Error |     StdDev |     Median | Ratio | RatioSD |  Gen 0 | Gen 1 | Gen 2 | Allocated |
-|----------------------- |----------- |-------------- |------------- |----- |-----------:|----------:|-----------:|-----------:|------:|--------:|-------:|------:|------:|----------:|
-| **ImmutableDictionaryAdd** | **Job-BZLJBK** |      **.NET 4.8** |        **net48** |   **16** |  **39.310 μs** | **3.9532 μs** | **11.5317 μs** |  **38.450 μs** |  **2.63** |    **0.97** |      **-** |     **-** |     **-** |    **8192 B** |
-| ImmutableDictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |   16 |  21.228 μs | 1.8649 μs |  5.4987 μs |  23.014 μs |  1.43 |    0.52 | 1.0681 |     - |     - |    4544 B |
-| ImmutableDictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |   16 |  15.727 μs | 1.2598 μs |  3.7146 μs |  15.146 μs |  1.00 |    0.00 | 1.0986 |     - |     - |    4608 B |
-|                        |            |               |              |      |            |           |            |            |       |         |        |       |       |           |
-|          DictionaryAdd | Job-BZLJBK |      .NET 4.8 |        net48 |   16 |  20.591 μs | 1.8134 μs |  5.3469 μs |  21.584 μs |  0.94 |    0.27 | 1.5869 |     - |     - |    6780 B |
-|          DictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |   16 |  23.151 μs | 1.7043 μs |  5.0251 μs |  24.004 μs |  1.10 |    0.24 | 1.5564 |     - |     - |    6632 B |
-|          DictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |   16 |  21.579 μs | 0.4279 μs |  1.1347 μs |  21.318 μs |  1.00 |    0.00 | 1.5869 |     - |     - |    6760 B |
-|                        |            |               |              |      |            |           |            |            |       |         |        |       |       |           |
-| **ImmutableDictionaryAdd** | **Job-BZLJBK** |      **.NET 4.8** |        **net48** |   **32** |  **73.776 μs** | **3.3076 μs** |  **9.7006 μs** |  **74.310 μs** |  **5.03** |    **0.53** | **2.5635** |     **-** |     **-** |   **11169 B** |
-| ImmutableDictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |   32 |  30.130 μs | 1.9982 μs |  5.7332 μs |  29.428 μs |  2.02 |    0.42 | 2.6245 |     - |     - |   11072 B |
-| ImmutableDictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |   32 |  15.103 μs | 0.3498 μs |  0.9867 μs |  14.906 μs |  1.00 |    0.00 | 2.5024 |     - |     - |   10560 B |
-|                        |            |               |              |      |            |           |            |            |       |         |        |       |       |           |
-|          DictionaryAdd | Job-BZLJBK |      .NET 4.8 |        net48 |   32 | 101.571 μs | 7.4886 μs | 20.1177 μs | 102.691 μs |  3.86 |    0.74 | 5.0049 |     - |     - |   21255 B |
-|          DictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |   32 |  41.371 μs | 1.3245 μs |  3.7574 μs |  40.465 μs |  1.57 |    0.18 | 5.0049 |     - |     - |   20936 B |
-|          DictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |   32 |  26.388 μs | 0.6811 μs |  1.9651 μs |  25.794 μs |  1.00 |    0.00 | 5.0659 |     - |     - |   21192 B |
-|                        |            |               |              |      |            |           |            |            |       |         |        |       |       |           |
-| **ImmutableDictionaryAdd** | **Job-BZLJBK** |      **.NET 4.8** |        **net48** |    **4** |   **2.083 μs** | **0.1621 μs** |  **0.4269 μs** |   **1.932 μs** |  **0.94** |    **0.29** | **0.1602** |     **-** |     **-** |     **674 B** |
-| ImmutableDictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |    4 |   3.490 μs | 0.2457 μs |  0.7246 μs |   3.363 μs |  1.63 |    0.50 | 0.1755 |     - |     - |     736 B |
-| ImmutableDictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |    4 |   2.263 μs | 0.1774 μs |  0.5232 μs |   2.157 μs |  1.00 |    0.00 | 0.1602 |     - |     - |     672 B |
-|                        |            |               |              |      |            |           |            |            |       |         |        |       |       |           |
-|          DictionaryAdd | Job-BZLJBK |      .NET 4.8 |        net48 |    4 |   1.260 μs | 0.0887 μs |  0.2560 μs |   1.173 μs |  0.92 |    0.30 | 0.2327 |     - |     - |     979 B |
-|          DictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |    4 |   1.641 μs | 0.1014 μs |  0.2991 μs |   1.554 μs |  1.18 |    0.33 | 0.2251 |     - |     - |     944 B |
-|          DictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |    4 |   1.493 μs | 0.1487 μs |  0.4385 μs |   1.412 μs |  1.00 |    0.00 | 0.2327 |     - |     - |     976 B |
-|                        |            |               |              |      |            |           |            |            |       |         |        |       |       |           |
-| **ImmutableDictionaryAdd** | **Job-BZLJBK** |      **.NET 4.8** |        **net48** |    **8** |   **5.447 μs** | **0.2846 μs** |  **0.8074 μs** |   **5.176 μs** |  **1.43** |    **0.26** | **0.4120** |     **-** |     **-** |    **1733 B** |
-| ImmutableDictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |    8 |   6.004 μs | 0.3184 μs |  0.8875 μs |   5.735 μs |  1.59 |    0.34 | 0.4730 |     - |     - |    1984 B |
-| ImmutableDictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |    8 |   3.902 μs | 0.2734 μs |  0.7299 μs |   3.661 μs |  1.00 |    0.00 | 0.4272 |     - |     - |    1792 B |
-|                        |            |               |              |      |            |           |            |            |       |         |        |       |       |           |
-|          DictionaryAdd | Job-BZLJBK |      .NET 4.8 |        net48 |    8 |   5.033 μs | 0.4493 μs |  1.3176 μs |   4.830 μs |  1.22 |    0.50 | 0.5646 |     - |     - |    2407 B |
-|          DictionaryAdd | Job-BYYWSC | .NET Core 3.1 | netcoreapp31 |    8 |   3.728 μs | 0.1245 μs |  0.3593 μs |   3.631 μs |  0.91 |    0.27 | 0.5569 |     - |     - |    2336 B |
-|          DictionaryAdd | Job-PWRAQS | .NET Core 5.0 | netcoreapp50 |    8 |   4.587 μs | 0.4849 μs |  1.4298 μs |   4.323 μs |  1.00 |    0.00 | 0.5722 |     - |     - |    2400 B |
+|                  Method |        Job |       Runtime |    Toolchain | test |         Mean |       Error |       StdDev | Ratio | RatioSD |   Gen 0 | Gen 1 | Gen 2 | Allocated |
+|------------------------ |----------- |-------------- |------------- |----- |-------------:|------------:|-------------:|------:|--------:|--------:|------:|------:|----------:|
+|  **ImmutableDictionaryAdd** | **Job-WUFNMB** |      **.NET 4.8** |        **net48** |   **16** |  **19,672.1 ns** | **1,220.10 ns** |  **3,597.49 ns** |  **2.46** |    **0.44** |  **1.0681** |     **-** |     **-** |    **4558 B** |
+|  ImmutableDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |   16 |  11,009.6 ns |   214.83 ns |    229.87 ns |  1.45 |    0.06 |  1.0529 |     - |     - |    4416 B |
+|  ImmutableDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |   16 |   7,575.0 ns |   151.11 ns |    244.02 ns |  1.00 |    0.00 |  1.0376 |     - |     - |    4352 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+|           DictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |   16 |  15,532.0 ns |   758.45 ns |  2,151.59 ns |  1.88 |    0.24 |  1.5869 |     - |     - |    6780 B |
+|           DictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |   16 |  12,724.0 ns |   252.71 ns |    248.19 ns |  1.45 |    0.06 |  1.5717 |     - |     - |    6632 B |
+|           DictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |   16 |   8,803.9 ns |   172.32 ns |    263.16 ns |  1.00 |    0.00 |  1.6022 |     - |     - |    6760 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+| ConcurrentDictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |   16 |  99,583.5 ns | 1,976.56 ns |  5,639.24 ns |  2.59 |    0.23 |  7.5684 |     - |     - |   31822 B |
+| ConcurrentDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |   16 |  87,947.7 ns | 1,731.62 ns |  2,986.96 ns |  2.27 |    0.18 |  6.2256 |     - |     - |   26416 B |
+| ConcurrentDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |   16 |  38,593.7 ns |   769.23 ns |  2,053.23 ns |  1.00 |    0.00 |  6.3477 |     - |     - |   26784 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+|  **ImmutableDictionaryAdd** | **Job-WUFNMB** |      **.NET 4.8** |        **net48** |   **32** |  **28,124.9 ns** |   **541.82 ns** |    **905.27 ns** |  **1.50** |    **0.07** |  **2.5940** |     **-** |     **-** |   **10976 B** |
+|  ImmutableDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |   32 |  27,664.1 ns |   544.63 ns |    582.75 ns |  1.48 |    0.04 |  2.6550 |     - |     - |   11200 B |
+|  ImmutableDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |   32 |  18,706.0 ns |   356.22 ns |    381.15 ns |  1.00 |    0.00 |  2.5635 |     - |     - |   10816 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+|           DictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |   32 |  44,745.1 ns |   893.03 ns |  2,223.94 ns |  1.36 |    0.09 |  5.0659 |     - |     - |   21255 B |
+|           DictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |   32 |  46,577.7 ns |   906.51 ns |    890.32 ns |  1.40 |    0.06 |  5.0049 |     - |     - |   20937 B |
+|           DictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |   32 |  32,960.8 ns |   657.42 ns |  1,218.57 ns |  1.00 |    0.00 |  5.0659 |     - |     - |   21192 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+| ConcurrentDictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |   32 | 256,922.0 ns | 5,082.12 ns | 12,370.59 ns |  1.88 |    0.12 | 20.0195 |     - |     - |   85502 B |
+| ConcurrentDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |   32 | 229,702.5 ns | 4,469.65 ns |  4,968.00 ns |  1.67 |    0.09 | 20.0195 |     - |     - |   84000 B |
+| ConcurrentDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |   32 | 136,288.7 ns | 2,495.79 ns |  6,661.77 ns |  1.00 |    0.00 | 20.9961 |     - |     - |   88304 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+|  **ImmutableDictionaryAdd** | **Job-WUFNMB** |      **.NET 4.8** |        **net48** |    **4** |   **1,872.3 ns** |    **37.50 ns** |     **82.32 ns** |  **1.42** |    **0.08** |  **0.1602** |     **-** |     **-** |     **674 B** |
+|  ImmutableDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |    4 |   1,698.4 ns |    33.63 ns |     68.70 ns |  1.28 |    0.07 |  0.1602 |     - |     - |     672 B |
+|  ImmutableDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |    4 |   1,319.1 ns |    25.87 ns |     37.10 ns |  1.00 |    0.00 |  0.1755 |     - |     - |     736 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+|           DictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |    4 |   1,002.5 ns |    20.39 ns |     58.18 ns |  1.02 |    0.06 |  0.2327 |     - |     - |     979 B |
+|           DictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |    4 |   1,136.0 ns |    22.55 ns |     18.83 ns |  1.16 |    0.04 |  0.2251 |     - |     - |     944 B |
+|           DictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |    4 |     980.4 ns |    19.43 ns |     38.79 ns |  1.00 |    0.00 |  0.2327 |     - |     - |     976 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+| ConcurrentDictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |    4 |  15,778.6 ns |   311.01 ns |    649.19 ns |  4.23 |    0.30 |  0.6714 |     - |     - |    2889 B |
+| ConcurrentDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |    4 |  16,357.3 ns |   319.95 ns |    314.23 ns |  4.27 |    0.18 |  0.8240 |     - |     - |    3504 B |
+| ConcurrentDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |    4 |   3,744.6 ns |    72.89 ns |    193.29 ns |  1.00 |    0.00 |  0.7553 |     - |     - |    3176 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+|  **ImmutableDictionaryAdd** | **Job-WUFNMB** |      **.NET 4.8** |        **net48** |    **8** |   **4,936.0 ns** |    **96.96 ns** |    **202.40 ns** |  **1.49** |    **0.09** |  **0.4425** |     **-** |     **-** |    **1862 B** |
+|  ImmutableDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |    8 |   4,723.4 ns |    86.19 ns |    146.36 ns |  1.43 |    0.10 |  0.4425 |     - |     - |    1856 B |
+|  ImmutableDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |    8 |   3,324.8 ns |    62.83 ns |    135.25 ns |  1.00 |    0.00 |  0.4425 |     - |     - |    1856 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+|           DictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |    8 |   3,421.1 ns |    68.50 ns |    145.99 ns |  1.22 |    0.10 |  0.5722 |     - |     - |    2407 B |
+|           DictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |    8 |   3,420.6 ns |    65.49 ns |     61.26 ns |  1.18 |    0.05 |  0.5569 |     - |     - |    2336 B |
+|           DictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |    8 |   2,825.0 ns |    61.06 ns |    172.23 ns |  1.00 |    0.00 |  0.5722 |     - |     - |    2400 B |
+|                         |            |               |              |      |              |             |              |       |         |         |       |       |           |
+| ConcurrentDictionaryAdd | Job-WUFNMB |      .NET 4.8 |        net48 |    8 |  39,818.1 ns |   786.94 ns |  1,959.75 ns |  4.38 |    0.33 |  2.6245 |     - |     - |   11081 B |
+| ConcurrentDictionaryAdd | Job-QVXTTI | .NET Core 3.1 | netcoreapp31 |    8 |  35,583.4 ns |   693.52 ns |  1,352.65 ns |  3.91 |    0.18 |  2.1362 |     - |     - |    9104 B |
+| ConcurrentDictionaryAdd | Job-AJCNCP | .NET Core 5.0 | netcoreapp50 |    8 |   9,103.5 ns |   181.21 ns |    357.70 ns |  1.00 |    0.00 |  1.6327 |     - |     - |    6856 B |

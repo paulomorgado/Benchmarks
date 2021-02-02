@@ -1,6 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -64,6 +65,36 @@ namespace DictionaryCopyOnWrite
 
             return dictionary;
         }
+
+        private static readonly ConcurrentDictionary<string, string> emptyConcurrentDictionary = 
+            new(StringComparer.Ordinal);
+
+        [Benchmark]
+        [ArgumentsSource(nameof(Data))]
+        public IDictionary<string, string> ConcurrentDictionaryAdd(TestSource test)
+        {
+            var dictionary = emptyConcurrentDictionary;
+
+            foreach (var s in test.Data)
+            {
+                var newDictionary =
+                    new ConcurrentDictionary<string, string>(
+                        Environment.ProcessorCount,
+                        dictionary.Count + 1,
+                        StringComparer.Ordinal);
+
+                foreach (var kvp in dictionary)
+                {
+                    newDictionary.TryAdd(kvp.Key, kvp.Value);
+                }
+
+                newDictionary.TryAdd(s, s);
+
+                dictionary = newDictionary;
+            }
+
+            return dictionary;
+        }
     }
 
     [MemoryDiagnoser]
@@ -96,6 +127,22 @@ namespace DictionaryCopyOnWrite
         [Benchmark]
         [ArgumentsSource(nameof(DictionaryData))]
         public bool DictionaryLookup(TestDictionary test)
+        {
+            var result = false;
+
+            for (var i = 0; i < this.Count; i++)
+            {
+                result |= test.Dictionary.ContainsKey(lookup);
+            }
+
+            return result;
+        }
+
+        public IEnumerable<TestConcurrentDictionary> ConcurrentDictionaryData() => TestConcurrentDictionary.GetTestData();
+
+        [Benchmark]
+        [ArgumentsSource(nameof(ConcurrentDictionaryData))]
+        public bool ConcurrentDictionaryLookup(TestConcurrentDictionary test)
         {
             var result = false;
 
@@ -151,6 +198,29 @@ namespace DictionaryCopyOnWrite
         }
 
         public Dictionary<string, string> Dictionary { get; }
+
+        public override string ToString() => this.Dictionary.Count.ToString();
+    }
+
+    public class TestConcurrentDictionary
+    {
+        public static IEnumerable<TestConcurrentDictionary> GetTestData()
+            => TestSource.GetTestData().Select(data => new TestConcurrentDictionary(data));
+
+        public TestConcurrentDictionary(TestSource data)
+        {
+            this.Dictionary = new ConcurrentDictionary<string, string>(
+                Environment.ProcessorCount,
+                data.Data.Length, 
+                StringComparer.Ordinal);
+
+            foreach(var s in data.Data)
+            {
+                this.Dictionary.TryAdd(s, s);
+            }
+        }
+
+        public ConcurrentDictionary<string, string> Dictionary { get; }
 
         public override string ToString() => this.Dictionary.Count.ToString();
     }
