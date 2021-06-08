@@ -6,6 +6,8 @@ This repo contains a series of benchmarks to test performance theories:
   * [DictionaryCopyOnWrite](DictionaryCopyOnWrite)
   * [ListFor](ListFor)
   * [StringTests](StringTests)
+  * [ByteArrayAllocation](ByteArrayAllocation)
+  * [StringBuilderBufferAllocation](StringBuilderBufferAllocation)
 * ASP.NET
   * [UriHelper](UriHelper)
   * [HttpStrings](HttpStrings)
