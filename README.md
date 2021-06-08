@@ -8,6 +8,7 @@ This repo contains a series of benchmarks to test performance theories:
   * [StringTests](StringTests)
   * [ByteArrayAllocation](ByteArrayAllocation)
   * [StringBuilderBufferAllocation](StringBuilderBufferAllocation)
+  * [`IComparer<T>` vs. `Comparison<T>`](ComparerComparison)
 * ASP.NET
   * [UriHelper](UriHelper)
   * [HttpStrings](HttpStrings)
