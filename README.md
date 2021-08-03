@@ -9,6 +9,8 @@ This repo contains a series of benchmarks to test performance theories:
   * [ByteArrayAllocation](ByteArrayAllocation)
   * [StringBuilderBufferAllocation](StringBuilderBufferAllocation)
   * [`IComparer<T>` vs. `Comparison<T>`](ComparerComparison)
+  * Text Comparison
+    * [TextComparison1](TextComparison1/README.md)
 * ASP.NET
   * [UriHelper](UriHelper)
   * [HttpStrings](HttpStrings)
