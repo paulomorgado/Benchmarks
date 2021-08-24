@@ -14,6 +14,8 @@ This repo contains a series of benchmarks to test performance theories:
 * ASP.NET
   * [UriHelper](UriHelper)
   * [HttpStrings](HttpStrings)
+* Logging Extensions
+  * [`LoggerMessage` vs no `DefineMessage`](LoggerMessage1/README.md)
 
 ## Building
 
