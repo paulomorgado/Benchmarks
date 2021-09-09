@@ -16,6 +16,7 @@ This repo contains a series of benchmarks to test performance theories:
   * [HttpStrings](HttpStrings)
 * Logging Extensions
   * [`LoggerMessage` vs no `DefineMessage`](LoggerMessage1/README.md)
+  * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](LoggerMessage2/README.md)
 
 ## Building
 
