@@ -11,6 +11,7 @@ This repo contains a series of benchmarks to test performance theories:
   * [`IComparer<T>` vs. `Comparison<T>`](ComparerComparison)
   * Text Comparison
     * [TextComparison1](TextComparison1/README.md)
+  * [`Guid`](GuidBenchmarks)
 * ASP.NET
   * [UriHelper](UriHelper)
   * [HttpStrings](HttpStrings)
