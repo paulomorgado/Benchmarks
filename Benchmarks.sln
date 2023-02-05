@@ -13,13 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UriHelperBenchmarks", "UriH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DictionaryCopyOnWrite", "DictionaryCopyOnWrite\DictionaryCopyOnWrite.csproj", "{47DE8602-302A-47AB-8C4A-CCE73F590137}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{188B58F9-C87F-4B84-9B25-DE311AD9AEE5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{188B58F9-C87F-4B84-9B25-DE311AD9AEE5}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		CODE-OF-CONDUCT.md = CODE-OF-CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
 		LICENSE = LICENSE
 		README.md = README.md
 		THIRD-PARTY-NOTICES = THIRD-PARTY-NOTICES
@@ -51,7 +53,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage2", "LoggerMes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage2Tests", "LoggerMessage2\LoggerMessage2Tests.csproj", "{B2C91152-B477-49E2-A3DB-A5D4FA19794B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidBenchmarks", "GuidBenchmarks\GuidBenchmarks.csproj", "{25CA2486-F5B8-481D-B718-A400826BDF2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuidBenchmarks", "GuidBenchmarks\GuidBenchmarks.csproj", "{25CA2486-F5B8-481D-B718-A400826BDF2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LINQ", "LINQ", "{AF155A73-D5E9-4F8C-B99C-78D553A24E96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectVsEnumerator", "Linq\SelectVsEnumerator\SelectVsEnumerator.csproj", "{02652643-412E-4CC3-A764-36C2C1B5EA45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -241,6 +247,18 @@ Global
 		{25CA2486-F5B8-481D-B718-A400826BDF2F}.Release|x64.Build.0 = Release|Any CPU
 		{25CA2486-F5B8-481D-B718-A400826BDF2F}.Release|x86.ActiveCfg = Release|Any CPU
 		{25CA2486-F5B8-481D-B718-A400826BDF2F}.Release|x86.Build.0 = Release|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Debug|x64.Build.0 = Debug|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Debug|x86.Build.0 = Debug|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Release|x64.ActiveCfg = Release|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Release|x64.Build.0 = Release|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Release|x86.ActiveCfg = Release|Any CPU
+		{02652643-412E-4CC3-A764-36C2C1B5EA45}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -252,6 +270,7 @@ Global
 		{9DE800AA-4188-4C39-875B-6C7B0110893A} = {F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}
 		{7C5CF86C-C3EA-4D6D-9588-1C8BC8586698} = {F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}
 		{B2C91152-B477-49E2-A3DB-A5D4FA19794B} = {F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}
+		{02652643-412E-4CC3-A764-36C2C1B5EA45} = {AF155A73-D5E9-4F8C-B99C-78D553A24E96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79195F12-2892-4823-A7A3-E2DCFFD9C7A3}

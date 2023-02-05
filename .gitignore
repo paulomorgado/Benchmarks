@@ -288,3 +288,4 @@ __pycache__/
 
 # BenchmarkDotNet
 BenchmarkDotNet.Artifacts/
+*.binlog
