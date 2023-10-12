@@ -15,13 +15,13 @@ This repo contains a series of benchmarks to test performance theories:
 * ASP.NET
   * [UriHelper](UriHelper)
   * [HttpStrings](HttpStrings)
-* Logging Extensions
-  * [`LoggerMessage` vs no `DefineMessage`](LoggerMessage1/README.md)
-  * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](LoggerMessage2/README.md)
+* Logging
+  * Microsoft
+    * [`LoggerMessage` vs no `DefineMessage`](Logging/Microsoft/LoggerMessage1/README.md)
+    * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](Logging/Microsoft/LoggerMessage2/README.md)
+  * Serilog
+    * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](Logging/Serilog/SerilogPropertyDestructuring/README.md)
 
-## Building
-
-You don't "build" New Repo, however, this will be meaningful for many other projects.
 
 ## Contributing
 

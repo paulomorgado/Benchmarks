@@ -14,6 +14,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DictionaryCopyOnWrite", "DictionaryCopyOnWrite\DictionaryCopyOnWrite.csproj", "{47DE8602-302A-47AB-8C4A-CCE73F590137}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{188B58F9-C87F-4B84-9B25-DE311AD9AEE5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Solution Items", ".Solution Items", "{188B58F9-C87F-4B84-9B25-DE311AD9AEE5}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
@@ -44,15 +45,23 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextComparison1.UnitTests", "TextComparison1\TextComparison1.UnitTests\TextComparison1.UnitTests.csproj", "{419A0357-E788-4DD4-B7DF-A9051F66BEAA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoggerMessage", "LoggerMessage", "{F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft", "Microsoft", "{F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage1", "LoggerMessage1\LoggerMessage1.csproj", "{9DE800AA-4188-4C39-875B-6C7B0110893A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage1", "Logging\Microsoft\LoggerMessage1\LoggerMessage1.csproj", "{9DE800AA-4188-4C39-875B-6C7B0110893A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage2", "LoggerMessage2\LoggerMessage2.csproj", "{7C5CF86C-C3EA-4D6D-9588-1C8BC8586698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage2", "Logging\Microsoft\LoggerMessage2\LoggerMessage2.csproj", "{7C5CF86C-C3EA-4D6D-9588-1C8BC8586698}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage2Tests", "LoggerMessage2\LoggerMessage2Tests.csproj", "{B2C91152-B477-49E2-A3DB-A5D4FA19794B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerMessage2Tests", "Logging\Microsoft\LoggerMessage2\LoggerMessage2Tests.csproj", "{B2C91152-B477-49E2-A3DB-A5D4FA19794B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuidBenchmarks", "GuidBenchmarks\GuidBenchmarks.csproj", "{25CA2486-F5B8-481D-B718-A400826BDF2F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{ACAD7CE8-44F3-41D9-A44F-EACDD534F26A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serilog", "Serilog", "{74E83B44-EF14-4A57-A238-B537DA4B9FEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerilogPropertyDestructuring", "Logging\Serilog\SerilogPropertyDestructuring\SerilogPropertyDestructuring.csproj", "{340A29C4-C725-47A1-B206-09CF00B0B8C4}"
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -241,6 +250,18 @@ Global
 		{25CA2486-F5B8-481D-B718-A400826BDF2F}.Release|x64.Build.0 = Release|Any CPU
 		{25CA2486-F5B8-481D-B718-A400826BDF2F}.Release|x86.ActiveCfg = Release|Any CPU
 		{25CA2486-F5B8-481D-B718-A400826BDF2F}.Release|x86.Build.0 = Release|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Debug|x64.Build.0 = Debug|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Debug|x86.Build.0 = Debug|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Release|x64.ActiveCfg = Release|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Release|x64.Build.0 = Release|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Release|x86.ActiveCfg = Release|Any CPU
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -249,9 +270,12 @@ Global
 		{29F60CEA-0ECF-45D1-A687-199407477CF8} = {FD7C6773-A787-493A-9111-D9E726D58B2A}
 		{056BCEB4-534D-4274-9DEC-BDCAA64ED07A} = {FD7C6773-A787-493A-9111-D9E726D58B2A}
 		{419A0357-E788-4DD4-B7DF-A9051F66BEAA} = {FD7C6773-A787-493A-9111-D9E726D58B2A}
+		{F4E6156E-30C9-4529-A52C-FCD8DD4BAD20} = {ACAD7CE8-44F3-41D9-A44F-EACDD534F26A}
 		{9DE800AA-4188-4C39-875B-6C7B0110893A} = {F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}
 		{7C5CF86C-C3EA-4D6D-9588-1C8BC8586698} = {F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}
 		{B2C91152-B477-49E2-A3DB-A5D4FA19794B} = {F4E6156E-30C9-4529-A52C-FCD8DD4BAD20}
+		{74E83B44-EF14-4A57-A238-B537DA4B9FEA} = {ACAD7CE8-44F3-41D9-A44F-EACDD534F26A}
+		{340A29C4-C725-47A1-B206-09CF00B0B8C4} = {74E83B44-EF14-4A57-A238-B537DA4B9FEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79195F12-2892-4823-A7A3-E2DCFFD9C7A3}
