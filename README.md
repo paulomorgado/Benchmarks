@@ -19,6 +19,8 @@ This repo contains a series of benchmarks to test performance theories:
   * Microsoft
     * [`LoggerMessage` vs no `DefineMessage`](Logging/Microsoft/LoggerMessage1/README.md)
     * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](Logging/Microsoft/LoggerMessage2/README.md)
+    * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](Logging/Microsoft/LoggerMessage2/README.md)
+    * [Performance implications of the different methods of logging](Logging/Microsoft/LoggingPerformance/README.md)
   * Serilog
     * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](Logging/Serilog/SerilogPropertyDestructuring/README.md)
 
