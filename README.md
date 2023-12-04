@@ -23,6 +23,8 @@ This repo contains a series of benchmarks to test performance theories:
     * [Performance implications of the different methods of logging](Logging/Microsoft/LoggingPerformance/README.md)
   * Serilog
     * [`LoggerMessage` vs `DefineMessage` with `DefaultInterpolatedStringHandler`](Logging/Serilog/SerilogPropertyDestructuring/README.md)
+  * DuendeSoftware
+    * [DuendeBenchmarks](DuendeSoftware/DuendeBenchmarks)
 
 
 ## Contributing

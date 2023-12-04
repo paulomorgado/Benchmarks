@@ -7,4 +7,4 @@ if (args is null || args.Length == 0)
 
 BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
 
-ObjectLayoutInspector.TypeLayout.PrintLayout<Duende.AccessTokenManagement.ClientCredentialsTokenHandler>();
+//ObjectLayoutInspector.TypeLayout.PrintLayout<Duende.AccessTokenManagement.ClientCredentialsTokenHandler>();
