@@ -1,13 +1,10 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 using BenchmarkDotNet.Attributes;
 using IdentityModel;
+using Microsoft.Extensions.Primitives;
 
 namespace DuendeBenchmarks;
 
@@ -92,6 +89,47 @@ public class IsDPoPErrorBenchmarks
                             return value.SequenceEqual(OidcConstants.TokenErrors.UseDPoPNonce.AsSpan())
                                 || value.SequenceEqual(OidcConstants.TokenErrors.InvalidDPoPProof.AsSpan());
                         }
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    [Benchmark]
+    public bool UsingStringTokenizer()
+    {
+        var header = this.header;
+
+        if (header.Scheme == OidcConstants.AuthenticationSchemes.AuthorizationHeaderDPoP
+            && header.Parameter is not null)
+        {
+            // WWW-Authenticate: DPoP error="use_dpop_nonce"
+
+            foreach (var parameterSegment in new StringTokenizer(header.Parameter, [',']))
+            {
+                ExtractNameValue(parameterSegment.AsSpan(), out var name, out var value);
+
+                if (name.SequenceEqual(OidcConstants.TokenResponse.Error.AsSpan()))
+                {
+                    return value.SequenceEqual(OidcConstants.TokenErrors.UseDPoPNonce.AsSpan())
+                        || value.SequenceEqual(OidcConstants.TokenErrors.InvalidDPoPProof.AsSpan());
+                }
+
+                [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                static void ExtractNameValue(ReadOnlySpan<char> nameValuePair, out ReadOnlySpan<char> name, out ReadOnlySpan<char> value)
+                {
+                    var idx = nameValuePair.IndexOf('=');
+                    if (idx != -1)
+                    {
+                        name = nameValuePair.Slice(0, idx).Trim();
+                        value = nameValuePair.Slice(idx + 1).Trim();
+                    }
+                    else
+                    {
+                        name = nameValuePair.Trim();
+                        value = ReadOnlySpan<char>.Empty;
                     }
                 }
             }
