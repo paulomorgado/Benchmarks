@@ -78,6 +78,13 @@ public class DisplayUrlBenchmark
 
     [Benchmark]
     [ArgumentsSource(nameof(Data))]
+    public string String_Concat(string scheme, HostString host, PathString basePath, PathString path, QueryString query)
+    {
+        return string.Concat((ReadOnlySpan<string>)[scheme, "://", host.Value, basePath.Value, path, query.Value]);
+    }
+
+    [Benchmark]
+    [ArgumentsSource(nameof(Data))]
     public string String_Create(string scheme, HostString host, PathString basePath, PathString path, QueryString query)
     {
         var schemeValue = scheme ?? string.Empty;
